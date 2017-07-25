@@ -74,7 +74,8 @@ class PostsController extends AppController
     {
         $post = $this->Posts->get($id, [
             'contain' => [
-                'Uploads'
+                'Uploads',
+                'AuthorAvatars'
             ]
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {

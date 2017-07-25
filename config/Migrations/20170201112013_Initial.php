@@ -90,11 +90,48 @@ class Initial extends AbstractMigration
                 'null' => true,
             ])
             ->create();
+
+        $this->table('author_avatars')
+            ->addColumn('id', 'integer', [
+                'autoIncrement' => true,
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+                'signed' => false,
+            ])
+            ->addPrimaryKey(['id'])
+            ->addColumn('post_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('avatar', 'string', [
+                'default' => '',
+                'limit' => 255,
+                'null' => false,
+            ])
+            ->addColumn('avatar_dir', 'string', [
+                'default' => '',
+                'limit' => 255,
+                'null' => false,
+            ])
+            ->addColumn('created', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => true,
+            ])
+            ->addColumn('modified', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => true,
+            ])
+            ->create();
     }
 
     public function down()
     {
         $this->dropTable('posts');
         $this->dropTable('uploads');
+        $this->dropTable('author_avatars');
     }
 }

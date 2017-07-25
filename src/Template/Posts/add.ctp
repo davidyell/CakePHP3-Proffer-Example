@@ -18,6 +18,8 @@
             echo $this->Form->input('uploads[]', ['type' => 'file', 'multiple' => true, 'label' => 'Files to upload']);
 
             echo $this->Form->input('title_image', ['type' => 'file']);
+
+            echo $this->Form->input('author_avatar', ['type' => 'file']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

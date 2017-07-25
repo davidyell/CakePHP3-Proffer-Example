@@ -54,6 +54,12 @@ class PostsTable extends Table
             'dependent' => true,
             'cascadeCallbacks' => true
         ]);
+
+        $this->hasOne('AuthorAvatars', [
+            'foreignKey' => 'post_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
+        ]);
     }
 
 
@@ -79,6 +85,9 @@ class PostsTable extends Table
         $validator
             ->requirePresence('content', 'create')
             ->notEmpty('content');
+
+        $validator
+            ->allowEmpty('title_image', 'update');
 
         return $validator;
     }
