@@ -10,8 +10,8 @@ class AuthorAvatarsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('author_avatars');
-        $this->primaryKey('id');
+        $this->setTable('author_avatars');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Proffer.Proffer', [
             'avatar' => [

@@ -17,15 +17,15 @@
     <fieldset>
         <legend><?= __('Edit Post') ?></legend>
         <?php
-            echo $this->Form->input('title');
-            echo $this->Form->input('description');
-            echo $this->Form->input('content');
+            echo $this->Form->control('title');
+            echo $this->Form->control('description');
+            echo $this->Form->control('content');
 
-            echo $this->Form->input('uploads[]', ['type' => 'file', 'multiple' => true, 'label' => 'Files to upload']);
+            echo $this->Form->control('uploads[]', ['type' => 'file', 'multiple' => true, 'label' => 'Files to upload']);
 
-            echo $this->Form->input('title_image', ['type' => 'file']);
+            echo $this->Form->control('title_image', ['type' => 'file']);
 
-            echo $this->Form->input('author_avatar', ['type' => 'file']);
+            echo $this->Form->control('author_avatar', ['type' => 'file']);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
@@ -34,7 +34,7 @@
     <?php
     if (!empty($post->uploads)) {
         echo "<h3>Uploads</h3><ul>";
-        echo "<li>Title image: " . $this->Html->link($post->title_image, '../files/uploads/posts/' . $post->title_image_dir . '/' . $post->title_image) . "</li>";
+        echo "<li>Title image: " . $this->Html->link($post->title_image, '../files/posts/title_image/' . $post->title_image_dir . '/' . $post->title_image) . "</li>";
         echo "<li>Author avatar: " . $this->Html->link($post->author_avatar->avatar, '../files/authoravatars/avatar/' . $post->author_avatar->avatar_dir . '/' . $post->author_avatar->avatar) . "</li>";
         echo "<li>Uploads:<ul>";
         foreach ($post->uploads as $upload) {

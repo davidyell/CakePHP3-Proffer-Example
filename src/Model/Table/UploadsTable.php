@@ -34,9 +34,9 @@ class UploadsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('uploads');
-        $this->displayField('filename');
-        $this->primaryKey('id');
+        $this->setTable('uploads');
+        $this->setDisplayField('filename');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Proffer.Proffer', [

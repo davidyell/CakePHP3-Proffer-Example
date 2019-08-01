@@ -34,9 +34,9 @@ class PostsTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('posts');
-        $this->displayField('title');
-        $this->primaryKey('id');
+        $this->setTable('posts');
+        $this->setDisplayField('title');
+        $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
         $this->addBehavior('Proffer.Proffer', [

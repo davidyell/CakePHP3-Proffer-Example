@@ -50,7 +50,7 @@ class PostsController extends AppController
     {
         $post = $this->Posts->newEntity();
         if ($this->request->is('post')) {
-            $post = $this->Posts->patchEntity($post, $this->request->data);
+            $post = $this->Posts->patchEntity($post, $this->getRequest()->getData());
             if ($this->Posts->save($post)) {
                 $this->Flash->success(__('The post has been saved.'));
 
@@ -79,7 +79,7 @@ class PostsController extends AppController
             ]
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $post = $this->Posts->patchEntity($post, $this->request->data());
+            $post = $this->Posts->patchEntity($post, $this->getRequest()->getData());
             if ($this->Posts->save($post)) {
                 $this->Flash->success(__('The post has been saved.'));
 
